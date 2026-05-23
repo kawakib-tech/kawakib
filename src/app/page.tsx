@@ -1,0 +1,27 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/sections/Hero";
+import { Team } from "@/components/sections/Team";
+import { Services } from "@/components/sections/Services";
+import { Work } from "@/components/sections/Work";
+import { Process } from "@/components/sections/Process";
+import { Quotes } from "@/components/sections/Quotes";
+import { Contact } from "@/components/sections/Contact";
+
+export default function Home() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Team />
+        <Services />
+        <Work />
+        <Process />
+        <Quotes />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}
