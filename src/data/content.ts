@@ -26,18 +26,20 @@ export const marqueeItems = [
 
 export const teamMembers = [
   {
-    role: "Co-founder & Engineer",
-    name: "Alex Morgan",
-    bio: "Full-stack engineer with a passion for clean architecture and scalable systems. Previously at leading tech companies.",
-    location: "San Francisco, CA",
-    focus: "Backend & Cloud",
+    role: "Mobile Engineer",
+    name: "Houssameddine Guechi",
+    bio: "Mobile developer specializing in Flutter with 4+ years of full-stack experience. Holds a Master's in Computer Science.",
+    location: "Algeria",
+    focus: "Mobile & Web",
+    image: "/team/houssam.png",
   },
   {
-    role: "Co-founder & Designer",
-    name: "Sam Chen",
-    bio: "Design engineer focused on crafting interfaces that are both beautiful and performant. Advocate for accessible design.",
-    location: "London, UK",
-    focus: "Frontend & Design",
+    role: "Backend Dev",
+    name: "Aimededdine Touati",
+    bio: "Backend engineer specializing in scalable APIs and database architecture. Passionate about clean code and system design.",
+    location: "Algeria",
+    focus: "Backend & Cloud",
+    image: "",
   },
 ];
 
@@ -74,44 +76,96 @@ export const services = [
   },
 ];
 
-export const projectFilters = ["All", "Web", "Mobile", "Design", "Cloud"];
+export const projectFilters = ["All", "Mobile", "Web"];
 
 export const projects = [
   {
-    title: "E-commerce Platform",
-    category: "Web",
-    year: "2025",
-    color: "#2563ff",
-  },
-  {
-    title: "Health & Fitness App",
+    title: "NavMarket",
     category: "Mobile",
-    year: "2024",
-    color: "#10b981",
+    color: "#f6851f",
+    image: "/projects/navmarket.png",
+    appStore: "https://apps.apple.com/hk/app/naviguih/id6739255560?l=en-GB&platform=iphone",
+    playStore: "https://play.google.com/store/apps/details?id=com.naviguih.app",
   },
   {
-    title: "SaaS Dashboard",
-    category: "Web",
-    year: "2024",
-    color: "#8b5cf6",
-  },
-  {
-    title: "Brand Identity System",
-    category: "Design",
-    year: "2024",
-    color: "#f59e0b",
-  },
-  {
-    title: "Cloud Migration",
-    category: "Cloud",
-    year: "2023",
-    color: "#06b6d4",
-  },
-  {
-    title: "Social Media App",
+    title: "NavFood",
     category: "Mobile",
-    year: "2023",
-    color: "#ec4899",
+    color: "#d32129",
+    image: "/projects/navfood.png",
+    appStore: "https://apps.apple.com/dz/app/navfood/id6742744572?platform=iphone",
+    playStore: "https://play.google.com/store/apps/details?id=com.sarlkig.navfood",
+  },
+  {
+    title: "NavDelivery",
+    category: "Mobile",
+    color: "#00ceb5",
+    image: "/projects/navdelivery.png",
+    appStore: "https://apps.apple.com/dz/app/navdelivery/id6745877102?platform=iphone",
+    playStore: "https://play.google.com/store/apps/details?id=com.sarlkig.navFoodDelivery",
+  },
+  {
+    title: "NavRestaurant",
+    category: "Mobile",
+    color: "#5d0c66",
+    image: "/projects/navrestaurant.png",
+    appStore: "https://apps.apple.com/us/app/navrestaurant/id6751362901",
+    playStore: "https://play.google.com/store/apps/details?id=com.sarlkig.NavRestaurant",
+  },
+  {
+    title: "Massalah",
+    category: "Mobile",
+    color: "#2E7D32",
+    image: "/projects/massalah.png",
+    appStore: "https://apps.apple.com/us/app/%D9%85%D8%B3%D9%84%D8%A9/id6753812374",
+    playStore: "https://play.google.com/store/apps/details?id=com.endpointsoft.massalah",
+  },
+  {
+    title: "Massalah Provider",
+    category: "Mobile",
+    color: "#1B5E20",
+    image: "/projects/massalah.png",
+    appStore: "https://apps.apple.com/us/app/مسلة-مقدم-الخدمة/id6753877345",
+    playStore: "https://play.google.com/store/apps/details?id=com.endpointsoft.masallah_provider",
+  },
+  {
+    title: "Ajr",
+    category: "Mobile",
+    color: "#1B6B4A",
+    image: "/projects/ajr.png",
+    playStore: "https://play.google.com/store/apps/details?id=com.ajr.app",
+    website: "https://ajr-flutter.netlify.app/",
+  },
+  {
+    title: "Courassy",
+    category: "Mobile",
+    color: "#D97706",
+    image: "/projects/courassy.png",
+  },
+  {
+    title: "VTC Platform",
+    category: "Web",
+    color: "#1565C0",
+    image: "/projects/vtc.png",
+    website: "https://vtc-admin.netlify.app/",
+  },
+  {
+    title: "Feedback",
+    category: "Web",
+    color: "#7B1FA2",
+    image: "/projects/feedback.png",
+    website: "https://endpointsoft.com/feedback/",
+  },
+  {
+    title: "Creno Dz",
+    category: "Mobile",
+    color: "#E65100",
+    image: "/projects/creno.png",
+  },
+  {
+    title: "FiqhPath",
+    category: "Mobile",
+    color: "#4E342E",
+    image: "/projects/fiqhpath.jpg",
   },
 ];
 

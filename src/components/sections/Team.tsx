@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { teamMembers } from "@/data/content";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
@@ -12,25 +13,31 @@ export function Team() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-          {teamMembers.map((member, i) => (
-            <div
-              key={member.name}
-              className="bg-bg-2 border border-rule rounded overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(10,24,52,0.10)]"
-            >
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-ink to-ink-2 overflow-hidden">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(-25deg, transparent 0, transparent 14px, rgba(255,255,255,0.04) 14px, rgba(255,255,255,0.04) 15px)",
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center text-white/55 text-sm font-mono">
-                  Photo
-                </div>
-                <div className="absolute top-[18px] right-[22px] font-display text-6xl font-bold leading-none tracking-tight text-accent/90">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
+          {teamMembers.map((member) => (
+            <div key={member.name} className="bg-bg-2 border border-rule">
+              <div className="relative aspect-[4/3]">
+                {member.image ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-containe object-top rounded-none"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                ) : (
+                  <div className="relative w-full h-full bg-gradient-to-br from-ink to-ink-2">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage:
+                          "repeating-linear-gradient(-25deg, transparent 0, transparent 14px, rgba(255,255,255,0.04) 14px, rgba(255,255,255,0.04) 15px)",
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center text-white/55 text-sm font-mono">
+                      Photo
+                    </div>
+                  </div>
+                )}
               </div>
               <div className="p-8 pb-9">
                 <div className="font-mono text-[11.5px] tracking-[0.08em] uppercase mb-3">
@@ -47,13 +54,17 @@ export function Team() {
                     <div className="font-mono text-[10.5px] tracking-[0.08em] uppercase text-muted-2 mb-1.5">
                       Location
                     </div>
-                    <div className="text-[13.5px] font-medium">{member.location}</div>
+                    <div className="text-[13.5px] font-medium">
+                      {member.location}
+                    </div>
                   </div>
                   <div>
                     <div className="font-mono text-[10.5px] tracking-[0.08em] uppercase text-muted-2 mb-1.5">
                       Focus
                     </div>
-                    <div className="text-[13.5px] font-medium">{member.focus}</div>
+                    <div className="text-[13.5px] font-medium">
+                      {member.focus}
+                    </div>
                   </div>
                 </div>
               </div>
