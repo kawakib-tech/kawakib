@@ -74,11 +74,11 @@ export function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-b border-rule">
+        <div className="grid grid-cols-2 border-t border-b border-rule">
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`py-7 pr-2 ${i < 3 ? "border-r border-rule" : ""} ${i < 2 ? "border-b sm:border-b-0 border-rule" : ""}`}
+              className={`py-7 pr-2 ${i === 0 ? "border-r border-rule" : ""}`}
             >
               <div className="font-display text-[clamp(34px,4vw,52px)] font-bold tracking-tight leading-none">
                 {stat.value}

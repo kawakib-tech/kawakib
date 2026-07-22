@@ -15,13 +15,13 @@ export function Team() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           {teamMembers.map((member) => (
             <div key={member.name} className="bg-bg-2 border border-rule">
-              <div className="relative aspect-[4/3]">
+              <div className="relative aspect-square">
                 {member.image ? (
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-containe object-top rounded-none"
+                    className="object-cover object-top rounded-none"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 ) : (

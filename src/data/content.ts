@@ -7,10 +7,8 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "40+", label: "Projects delivered" },
-  { value: "6", label: "Years active" },
-  { value: "12", label: "Countries served" },
-  { value: "99%", label: "Client retention" },
+  { value: "10+", label: "Projects delivered" },
+  { value: "2", label: "Years active" },
 ];
 
 export const marqueeItems = [
@@ -224,14 +222,12 @@ export const quotes = [
 ];
 
 export const contactInfo = [
-  { label: "Email", value: "hello@kawakib.studio" },
-  { label: "Location", value: "Remote-first, worldwide" },
-  { label: "Availability", value: "Open for Q3 2025" },
+  { label: "Email", value: "admin@kawakib.tech", href: "mailto:admin@kawakib.tech" },
+  { label: "Location", value: "Remote-first, worldwide", href: "" },
+  { label: "Availability", value: "Open for new projects", href: "" },
 ];
 
 export const socialLinks = [
-  "GitHub",
-  "X / Twitter",
-  "LinkedIn",
-  "Dribbble",
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/kawakib" },
+  { name: "Facebook", url: "https://www.facebook.com/kawakib" },
 ];
