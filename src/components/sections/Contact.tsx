@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { contactInfo, socialLinks } from "@/data/content";
+import { contactInfo } from "@/data/content";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ArrowUpRight, Check } from "lucide-react";
 
@@ -74,20 +74,6 @@ export function Contact() {
                     </>
                   )}
                 </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-2 mt-9">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3.5 py-2 border border-white/18 rounded-full text-[12.5px] text-white/85 transition-all hover:border-accent hover:text-accent cursor-pointer"
-                >
-                  {social.name}
-                </a>
               ))}
             </div>
           </div>
