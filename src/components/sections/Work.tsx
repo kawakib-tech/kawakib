@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { projects, projectFilters } from "@/data/content";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Globe, X, ArrowUpRight, Rocket } from "lucide-react";
+import { Globe, LayoutDashboard, X, ArrowUpRight, Rocket } from "lucide-react";
 import { useState, useCallback } from "react";
 
 type DialogState = { projectTitle: string; type: "links" | "coming-soon" } | null;
@@ -21,10 +21,11 @@ export function Work() {
     (title: string) => {
       const p = projects.find((proj) => proj.title === title);
       if (!p) return [];
-      const links: { label: string; url: string; icon: "apple" | "play" | "globe" }[] = [];
+      const links: { label: string; url: string; icon: "apple" | "play" | "globe" | "dashboard" }[] = [];
       if ("appStore" in p && p.appStore) links.push({ label: "App Store", url: p.appStore as string, icon: "apple" });
       if ("playStore" in p && p.playStore) links.push({ label: "Play Store", url: p.playStore as string, icon: "play" });
       if ("website" in p && p.website) links.push({ label: "Website", url: p.website as string, icon: "globe" });
+      if ("adminDashboard" in p && p.adminDashboard) links.push({ label: "Admin Dashboard", url: p.adminDashboard as string, icon: "dashboard" });
       return links;
     },
     []
@@ -169,6 +170,7 @@ export function Work() {
                         </svg>
                       )}
                       {link.icon === "globe" && <Globe className="w-5 h-5 shrink-0" />}
+                      {link.icon === "dashboard" && <LayoutDashboard className="w-5 h-5 shrink-0" />}
                       <span className="font-medium text-[14.5px]">{link.label}</span>
                       <ArrowUpRight className="w-4 h-4 ml-auto text-muted group-hover/link:text-ink transition-colors" />
                     </a>

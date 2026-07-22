@@ -80,6 +80,14 @@ export const projectFilters = ["All", "Mobile", "Web"];
 
 export const projects = [
   {
+    title: "Stockflow",
+    category: "Web",
+    color: "#0D9488",
+    image: "/projects/stockflow.jpg",
+    website: "https://www.ama-electronic.dz",
+    adminDashboard: "https://ims.ama-electronic.dz",
+  },
+  {
     title: "NavMarket",
     category: "Mobile",
     color: "#f6851f",
