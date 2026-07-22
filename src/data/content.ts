@@ -32,7 +32,7 @@ export const teamMembers = [
     image: "",
   },
   {
-    role: "Backend Dev",
+    role: "Backend/DevOps Engineer",
     name: "Aimededdine Touati",
     bio: "Backend engineer specializing in scalable APIs and database architecture. Passionate about clean code and system design.",
     location: "Algeria",
