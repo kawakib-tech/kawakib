@@ -134,14 +134,6 @@ export const projects = [
     playStore: "https://play.google.com/store/apps/details?id=com.endpointsoft.masallah_provider",
   },
   {
-    title: "Ajr",
-    category: "Mobile",
-    color: "#1B6B4A",
-    image: "/projects/ajr.png",
-    playStore: "https://play.google.com/store/apps/details?id=com.ajr.app",
-    website: "https://ajr-flutter.netlify.app/",
-  },
-  {
     title: "Courassy",
     category: "Mobile",
     color: "#D97706",
