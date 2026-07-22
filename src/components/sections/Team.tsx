@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image"; // re-enable with the photo block below
 import { teamMembers } from "@/data/content";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
@@ -15,6 +15,7 @@ export function Team() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           {teamMembers.map((member) => (
             <div key={member.name} className="bg-bg-2 border border-rule">
+              {/* Photo disabled until we have real team photos.
               <div className="relative aspect-square">
                 {member.image ? (
                   <Image
@@ -39,6 +40,7 @@ export function Team() {
                   </div>
                 )}
               </div>
+              */}
               <div className="p-8 pb-9">
                 <div className="font-mono text-[11.5px] tracking-[0.08em] uppercase mb-3">
                   {member.role}

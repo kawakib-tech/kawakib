@@ -8,6 +8,18 @@ import { useState, useCallback } from "react";
 
 type DialogState = { projectTitle: string; type: "links" | "coming-soon" } | null;
 
+type LinkIcon = "apple" | "play" | "globe" | "dashboard";
+type ProjectLink = { label: string; url: string | null; icon: LinkIcon; pending?: boolean };
+
+type PendingKey = "appStore" | "playStore" | "website" | "adminDashboard";
+
+const pendingMeta: Record<PendingKey, { label: string; icon: LinkIcon }> = {
+  appStore: { label: "App Store", icon: "apple" },
+  playStore: { label: "Play Store", icon: "play" },
+  website: { label: "Website", icon: "globe" },
+  adminDashboard: { label: "Admin Dashboard", icon: "dashboard" },
+};
+
 export function Work() {
   const [active, setActive] = useState("All");
   const [dialog, setDialog] = useState<DialogState>(null);
@@ -21,11 +33,16 @@ export function Work() {
     (title: string) => {
       const p = projects.find((proj) => proj.title === title);
       if (!p) return [];
-      const links: { label: string; url: string; icon: "apple" | "play" | "globe" | "dashboard" }[] = [];
+      const links: ProjectLink[] = [];
       if ("appStore" in p && p.appStore) links.push({ label: "App Store", url: p.appStore as string, icon: "apple" });
       if ("playStore" in p && p.playStore) links.push({ label: "Play Store", url: p.playStore as string, icon: "play" });
       if ("website" in p && p.website) links.push({ label: "Website", url: p.website as string, icon: "globe" });
       if ("adminDashboard" in p && p.adminDashboard) links.push({ label: "Admin Dashboard", url: p.adminDashboard as string, icon: "dashboard" });
+      if ("pending" in p && p.pending) {
+        for (const key of p.pending as PendingKey[]) {
+          links.push({ ...pendingMeta[key], url: null, pending: true });
+        }
+      }
       return links;
     },
     []
@@ -34,10 +51,11 @@ export function Work() {
   const handleCardClick = useCallback(
     (title: string) => {
       const links = getLinks(title);
+      const real = links.filter((l) => !l.pending);
       if (links.length === 0) {
         setDialog({ projectTitle: title, type: "coming-soon" });
-      } else if (links.length === 1) {
-        window.open(links[0].url, "_blank", "noopener,noreferrer");
+      } else if (links.length === 1 && real.length === 1) {
+        window.open(real[0].url as string, "_blank", "noopener,noreferrer");
       } else {
         setDialog({ projectTitle: title, type: "links" });
       }
@@ -150,15 +168,9 @@ export function Work() {
                 </h3>
                 <p className="text-muted text-sm mb-5">Choose where to view this project</p>
                 <div className="flex flex-col gap-2">
-                  {dialogLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setDialog(null)}
-                      className="flex items-center gap-3 px-4 py-3 rounded-xl border border-rule hover:border-ink hover:bg-bg-tinted transition-all group/link"
-                    >
+                  {dialogLinks.map((link) => {
+                    const inner = (
+                    <>
                       {link.icon === "apple" && (
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="shrink-0">
                           <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.56 2.93 11.3 4.7 7.72C5.57 5.94 7.36 4.86 9.28 4.84C10.56 4.81 11.78 5.72 12.57 5.72C13.36 5.72 14.85 4.62 16.4 4.8C17.07 4.83 18.89 5.08 20.06 6.78C19.95 6.85 17.62 8.24 17.65 11.1C17.69 14.52 20.62 15.63 20.65 15.64C20.62 15.73 20.17 17.32 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
@@ -172,9 +184,37 @@ export function Work() {
                       {link.icon === "globe" && <Globe className="w-5 h-5 shrink-0" />}
                       {link.icon === "dashboard" && <LayoutDashboard className="w-5 h-5 shrink-0" />}
                       <span className="font-medium text-[14.5px]">{link.label}</span>
-                      <ArrowUpRight className="w-4 h-4 ml-auto text-muted group-hover/link:text-ink transition-colors" />
-                    </a>
-                  ))}
+                      {link.pending ? (
+                        <span className="ml-auto inline-flex items-center gap-1.5 bg-green-50 border border-green-200 text-green-700 rounded-full px-2 py-0.5 text-[10px] font-semibold whitespace-nowrap">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                          In Development
+                        </span>
+                      ) : (
+                        <ArrowUpRight className="w-4 h-4 ml-auto text-muted group-hover/link:text-ink transition-colors" />
+                      )}
+                    </>
+                    );
+
+                    return link.pending ? (
+                      <div
+                        key={link.label}
+                        className="flex items-center gap-3 px-4 py-3 rounded-xl border border-rule opacity-60 cursor-default"
+                      >
+                        {inner}
+                      </div>
+                    ) : (
+                      <a
+                        key={link.label}
+                        href={link.url as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setDialog(null)}
+                        className="flex items-center gap-3 px-4 py-3 rounded-xl border border-rule hover:border-ink hover:bg-bg-tinted transition-all group/link"
+                      >
+                        {inner}
+                      </a>
+                    );
+                  })}
                 </div>
               </>
             ) : (

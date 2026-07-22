@@ -29,7 +29,7 @@ export const teamMembers = [
     bio: "Mobile developer specializing in Flutter with 4+ years of full-stack experience. Holds a Master's in Computer Science.",
     location: "Algeria",
     focus: "Mobile & Web",
-    image: "/team/houssam.png",
+    image: "",
   },
   {
     role: "Backend Dev",
@@ -146,13 +146,8 @@ export const projects = [
     category: "Mobile",
     color: "#D97706",
     image: "/projects/courassy.png",
-  },
-  {
-    title: "VTC Platform",
-    category: "Web",
-    color: "#1565C0",
-    image: "/projects/vtc.png",
-    website: "https://vtc-admin.netlify.app/",
+    website: "https://courassy.com/",
+    pending: ["appStore", "playStore"],
   },
   {
     title: "Feedback",
@@ -160,18 +155,6 @@ export const projects = [
     color: "#7B1FA2",
     image: "/projects/feedback.png",
     website: "https://endpointsoft.com/feedback/",
-  },
-  {
-    title: "Creno Dz",
-    category: "Mobile",
-    color: "#E65100",
-    image: "/projects/creno.png",
-  },
-  {
-    title: "FiqhPath",
-    category: "Mobile",
-    color: "#4E342E",
-    image: "/projects/fiqhpath.jpg",
   },
 ];
 
