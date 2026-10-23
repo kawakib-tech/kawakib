@@ -78,10 +78,26 @@ export const projectFilters = ["All", "Mobile", "Web"];
 
 export const projects = [
   {
+    title: "Nouba Plus",
+    category: "Mobile",
+    color: "#F26B1D",
+    image: "/projects/noubaplus.png",
+    playStore: "https://play.google.com/store/apps/details?id=com.noubaplus.app",
+    website: "https://noubaplus.com/",
+    pending: ["appStore"],
+  },
+  {
+    title: "Nouba Plus Web",
+    category: "Web",
+    color: "#F26B1D",
+    image: "/projects/noubaplus-web.png",
+    website: "https://noubaplus.com/",
+  },
+  {
     title: "Stockflow",
     category: "Web",
     color: "#0D9488",
-    image: "/projects/stockflow.jpg",
+    image: "/projects/stockflow.png",
     website: "https://www.ama-electronic.dz",
     adminDashboard: "https://ims.ama-electronic.dz",
   },
@@ -138,8 +154,16 @@ export const projects = [
     category: "Mobile",
     color: "#D97706",
     image: "/projects/courassy.png",
+    playStore: "https://play.google.com/store/apps/details?id=com.courassy.app",
     website: "https://courassy.com/",
-    pending: ["appStore", "playStore"],
+    pending: ["appStore"],
+  },
+  {
+    title: "Courassy Web",
+    category: "Web",
+    color: "#D97706",
+    image: "/projects/courassy-web.png",
+    website: "https://courassy.com/",
   },
   {
     title: "Feedback",
